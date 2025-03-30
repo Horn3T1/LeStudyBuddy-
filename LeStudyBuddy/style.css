@@ -1,13 +1,13 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background: #f5f5f5;
     margin: 0;
     padding: 0;
-    color: white;
+    color: #333;
 }
 
 header {
-    background: #552583; /* Lakers purple */
+    background: #552583;
     color: white;
     text-align: center;
     padding: 1.5rem;
@@ -34,6 +34,7 @@ header p {
 }
 
 .input-section {
+    flex: 2;
     background: white;
     padding: 2rem;
     border-radius: 8px;
@@ -82,14 +83,6 @@ button:hover {
     background: #ffcc00;
 }
 
-.result-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 .lebron-quote {
     font-style: italic;
     font-size: 1.2rem;
@@ -119,7 +112,7 @@ button:hover {
     border-radius: 8px;
 }
 
-/* To-Do Section */
+/* ===== To-Do Section (Main Page) ===== */
 .todo-section {
     flex: 1;
     background: white;
@@ -168,7 +161,6 @@ button:hover {
     background: white;
     border: 2px solid #552583;
     border-radius: 4px;
-    position: relative;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -184,9 +176,7 @@ button:hover {
     100% { transform: scale(1); }
 }
 
-
-
-/* Edit Page Layout */
+/* ===== Edit Page ===== */
 .edit-page {
     display: flex;
     flex-direction: column;
@@ -202,35 +192,12 @@ button:hover {
 }
 
 #edit-todo-list li {
-    display: flex;
-    align-items: center;
     background: #f9f9f9;
-    padding: 0.5rem 0.7rem;
+    padding: 0.7rem 1rem;
     border-radius: 8px;
     margin-bottom: 0.5rem;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-    gap: 0.7rem;
-}
-
-#edit-todo-list button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
     font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#edit-todo-list button:hover {
-    transform: scale(1.2);
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 #back-btn {
