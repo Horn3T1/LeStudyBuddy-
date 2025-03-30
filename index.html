@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeStudyBuddy 🏆</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
     <header>
         <h1>LeStudyBuddy 🏀</h1>
@@ -56,89 +53,14 @@
                 <input type="date" id="due-date">
                 <button id="add-task">
                     Add
-                    <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z" />
+                    <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
+                        <path d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"/>
                     </svg>
                 </button>
             </div>
         </section>
     </div>
-    <!-- Static Calendar Section -->
-    <section class="calendar-section">
-        <h2>📅 Calendar</h2>
-        <div class="calendar">
-            <!-- Calendar Header -->
-            <div class="calendar-header" id="calendar-header"></div>
 
-            <!-- Days of the Week -->
-            <div class="calendar-days">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-            </div>
-
-            <!-- Dates -->
-            <div class="calendar-dates" id="calendar-dates"></div>
-        </div>
-    </section>
-
-    <!-- Place your JavaScript here -->
-    <script>
-        // JavaScript to dynamically generate the calendar
-        document.addEventListener("DOMContentLoaded", function () {
-            const calendarHeader = document.getElementById("calendar-header");
-            const calendarDates = document.getElementById("calendar-dates");
-
-            // Get current date
-            const today = new Date();
-            const currentYear = today.getFullYear();
-            const currentMonth = today.getMonth(); // Month is zero-based (0 = January)
-            const currentDate = today.getDate();
-
-            // Array of month names
-            const monthNames = [
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ];
-
-            // Days in each month
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-            // First day of the month (0 = Sunday, 1 = Monday, etc.)
-            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-
-            // Set calendar header
-            calendarHeader.textContent = `${monthNames[currentMonth]} ${currentYear}`;
-
-            // Clear previous dates (if any)
-            calendarDates.innerHTML = "";
-
-            // Add empty slots for days before the first day of the month
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                const emptySlot = document.createElement("div");
-                calendarDates.appendChild(emptySlot);
-            }
-
-            // Add days of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateSlot = document.createElement("div");
-                dateSlot.textContent = day;
-
-                // Highlight today's date
-                if (day === currentDate) {
-                    dateSlot.classList.add("today");
-                }
-
-                calendarDates.appendChild(dateSlot);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
