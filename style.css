@@ -484,3 +484,74 @@ input::-webkit-inner-spin-button {
     height: 16px;
 }
 
+    /* Calendar Styles */
+    .calendar {
+        margin: 20px auto;
+        max-width: 600px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .calendar-header {
+        background-color: #1abc9c;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.5em;
+    }
+
+    .calendar-section h2 {
+        text-align: center; /* Centers the heading */
+        margin-bottom: 20px; /* Adds spacing below the heading */
+    }
+    
+
+    .calendar-days,
+    .calendar-dates {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+    }
+
+    .calendar-days div,
+    .calendar-dates div {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .calendar-days {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    .calendar-dates div {
+        min-height: 40px;
+    }
+
+    .calendar-dates div.today {
+        background-color: #ffeb3b;
+        font-weight: bold;
+    }
+
+    /* Tooltip Styles */
+    .tooltip {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: -50px; /* Position above the date */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 0.9em;
+        z-index: 1000; /* Ensures it appears above other elements */
+    }
+
+    .calendar-dates div:hover .tooltip {
+        display: block; /* Show tooltip on hover */
+    }
+
+
