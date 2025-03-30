@@ -4,8 +4,6 @@ A LeBron-Themed Study Buddy for Your Exam Prep
 
 Your personalized study companion inspired by the legendary LeBron James. This web app helps you create a tailored study plan based on three key parameters: the date of your exam, the current date, and your current level of preparedness. Stay motivated with daily inspirational quotes and pictures from the King himself, as you journey towards your exam day, symbolized by the NBA Finals.
 
-Site can be found here: https://horn3t1.github.io/LeStudyBuddy-/index.html
-
 # Features
 
 - Personalized Study Plan: Input your exam date and current readiness level to receive a customized daily study schedule.
