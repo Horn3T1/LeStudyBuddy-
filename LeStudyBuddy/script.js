@@ -134,3 +134,23 @@ if (document.getElementById("add-task")) {
 
     loadTasks();
 }
+
+// Team Theme Switcher
+document.getElementById("team-select").addEventListener("change", function() {
+    // Remove all theme classes first
+    document.body.classList.remove("lakers-theme", "cavaliers-theme", "heat-theme");
+    
+    // Add selected theme
+    const selectedTeam = this.value;
+    document.body.classList.add(`${selectedTeam}-theme`);
+    
+    // Optional: Store preference in localStorage
+    localStorage.setItem("lebronTeamTheme", selectedTeam);
+});
+
+// Load saved theme on page load (optional)
+window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("lebronTeamTheme") || "lakers";
+    document.getElementById("team-select").value = savedTheme;
+    document.body.classList.add(`${savedTheme}-theme`);
+});
