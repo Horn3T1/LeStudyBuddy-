@@ -18,8 +18,8 @@ const lebronQuotes = {
 };
 
 const lebronImages = {
-    raw: "images/mediubron.jpg.webp",
-    medium: "images/rawbron.jpeg",
+    raw: "images/rawbron.jpeg",
+    medium: "images/mediubron.jpg.webp",
     wellDone: "welldonebron.jpg"
 };
 
