@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEStudyBuddy 🏆</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>LEStudyBuddy 🏀</h1>
+        <p>"Nothing is given. Everything is earned." - LeBron</p>
+    </header>
+
+    <div class="container">
+        <section class="input-section">
+            <h2>Create Your Study Plan</h2>
+            <div class="input-group">
+                <label for="exam-date">Exam Date:</label>
+                <input type="date" id="exam-date" required>
+            </div>
+            <div class="input-group">
+                <label for="cooked-level">How Cooked Are You?</label>
+                <select id="cooked-level">
+                    <option value="raw">RAW (Just Started)</option>
+                    <option value="medium">MEDIUM (Some Progress)</option>
+                    <option value="well-done">WELL-DONE (Almost Ready)</option>
+                </select>
+            </div>
+            <button id="generate-btn">Generate Plan 🚀</button>
+        </section>
+
+        <section class="result-section" id="result" style="display: none;">
+            <h2>Your Study Plan</h2>
+            <div class="lebron-quote" id="quote">
+                <!-- LeBron quote will appear here -->
+            </div>
+            <div class="study-plan" id="plan">
+                <!-- Study plan will appear here -->
+            </div>
+            <div class="countdown" id="countdown">
+                <!-- Days left will appear here -->
+            </div>
+            <div class="lebron-image" id="lebron-img">
+                <!-- LeBron image changes based on progress -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
