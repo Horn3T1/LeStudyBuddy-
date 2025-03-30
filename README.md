@@ -22,3 +22,7 @@ User Input: Enter your exam date and current readiness level.
 Receive a personalized schedule with daily goals and motivational content.
 
 Progress Tracking: Watch your progress unfold like an NBA season, with each day bringing you closer to the "championship" – your exam.
+
+# Sources:
+ChatGPT
+Perplexity Ai

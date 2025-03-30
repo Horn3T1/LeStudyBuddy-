@@ -3,17 +3,25 @@ const lebronQuotes = {
     raw: [
         "“I’m going to use all my tools, my God-given ability, and make the best life I can with it.”",
         "“You have to be able to accept failure to get better.”",
-        "“I like criticism. It makes you strong.”"
+        "“I like criticism. It makes you strong.”", 
+        "Don't be afraid of failure. This is the way to succeed.", 
+        "Something just doesn't pop under your nose; you have to work for it."
     ],
     medium: [
         "“I always say, decisions I make, I live with them.”",
         "“I’m chasing greatness.”",
-        "“I’m comfortable with being uncomfortable.”"
+        "“I’m comfortable with being uncomfortable.”",
+        "The solutions to our problems rarely come as fast as we want them to, but it's our hope and faith that keep us going.",
+        "Maybe my pain was motivation."
+
     ],
     wellDone: [
         "“I’m ready for whatever comes my way.”",
         "“I know what I’m capable of. I’m just going out there to prove it.”",
-        "“It’s about being a professional.”"
+        "“It’s about being a professional.”",
+        "Once you become a professional athlete or once you do anything well, then you're automatically a role model… I love it.",
+        "We da best music"
+
     ]
 };
 
