@@ -446,3 +446,41 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+.todo-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#task-input, #due-date {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+#add-task {
+    background: #28a745;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s;
+}
+
+#add-task:hover {
+    background: #218838;
+}
+
+.plus-icon {
+    width: 16px;
+    height: 16px;
+}
+

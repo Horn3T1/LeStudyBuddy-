@@ -1,4 +1,4 @@
-// Study Plan Section
+// ===== Study Plan Section =====
 const lebronQuotes = {
     raw: [
         "“I’m going to use all my tools, my God-given ability, and make the best life I can with it.”",
@@ -23,16 +23,12 @@ const lebronImages = {
     wellDone: "welldonebron.jpg"
 };
 
-if (document.getElementById("generate-btn")) {
-    document.getElementById("generate-btn").addEventListener("click", generatePlan);
-}
-
 function generatePlan() {
     const examDate = new Date(document.getElementById("exam-date").value);
     const currentDate = new Date();
     const cookedLevel = document.getElementById("cooked-level").value;
 
-    if (!examDate) {
+    if (!examDate || isNaN(examDate)) {
         alert("Please select an exam date!");
         return;
     }
@@ -45,13 +41,10 @@ function generatePlan() {
         return;
     }
 
-    const resultSection = document.getElementById("result");
-    resultSection.style.display = "block";
-
+    document.getElementById("result").style.display = "block";
     const randomQuote = lebronQuotes[cookedLevel][Math.floor(Math.random() * lebronQuotes[cookedLevel].length)];
     document.getElementById("quote").innerHTML = `<p>${randomQuote}</p>`;
-
-    document.getElementById("countdown").innerHTML = `<p>⏳ ${daysLeft} days until the Finals (Exam Day)!</p>`;
+    document.getElementById("countdown").innerHTML = `<p>⏳ ${daysLeft} days until the Finals!</p>`;
 
     let studyPlan = "";
     if (cookedLevel === "raw") {
@@ -66,91 +59,69 @@ function generatePlan() {
     document.getElementById("lebron-img").innerHTML = `<img src="${lebronImages[cookedLevel]}" alt="LeBron ${cookedLevel}">`;
 }
 
-// Main Page To-Do List
-if (document.getElementById("todo-list")) {
+// ===== To-Do List Section =====
+function loadTasks() {
     const todoList = document.getElementById("todo-list");
-    const editBtn = document.getElementById("edit-btn");
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    todoList.innerHTML = "";
 
-    function loadTasks() {
-        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        todoList.innerHTML = "";
-
-        tasks.forEach((task, index) => {
-            const li = document.createElement("li");
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.addEventListener("change", () => {
-                tasks.splice(index, 1);
-                localStorage.setItem("tasks", JSON.stringify(tasks));
-                loadTasks();
-            });
-            li.appendChild(checkbox);
-            li.appendChild(document.createTextNode(task));
-            todoList.appendChild(li);
+    tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener("change", () => {
+            tasks.splice(index, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            loadTasks();
         });
-    }
-
-    editBtn.addEventListener("click", () => {
-        window.location.href = "tasks.html";
+        li.appendChild(checkbox);
+        li.appendChild(document.createTextNode(`${task.name} (Due: ${task.due})`));
+        todoList.appendChild(li);
     });
-
-    loadTasks();
 }
 
-// Task Editor Page
-if (document.getElementById("add-task")) {
+function addTask() {
     const taskInput = document.getElementById("task-input");
-    const addTaskBtn = document.getElementById("add-task");
-    const editTodoList = document.getElementById("edit-todo-list");
-    const backBtn = document.getElementById("back-btn");
+    const dueDate = document.getElementById("due-date");
+    const taskName = taskInput.value.trim();
+    const due = dueDate.value;
 
-    function loadTasks() {
-        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        editTodoList.innerHTML = "";
-
-        tasks.forEach((task) => {
-            const li = document.createElement("li");
-            li.textContent = task;
-            editTodoList.appendChild(li);
-        });
+    if (taskName === "" || due === "") {
+        alert("Please enter both task name and due date!");
+        return;
     }
 
-    addTaskBtn.addEventListener("click", () => {
-        const task = taskInput.value.trim();
-        if (task === "") {
-            alert("Enter a task name!");
-            return;
-        }
-        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        tasks.push(task);
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-        taskInput.value = "";
-        loadTasks();
-    });
-
-    backBtn.addEventListener("click", () => {
-        window.location.href = "index.html";
-    });
-
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push({ name: taskName, due: due });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    taskInput.value = "";
+    dueDate.value = "";
     loadTasks();
 }
 
-// Team Theme Switcher
-document.getElementById("team-select").addEventListener("change", function() {
-    // Remove all theme classes first
-    document.body.classList.remove("lakers-theme", "cavaliers-theme", "heat-theme");
-    
-    // Add selected theme
-    const selectedTeam = this.value;
-    document.body.classList.add(`${selectedTeam}-theme`);
-    
-    // Optional: Store preference in localStorage
-    localStorage.setItem("lebronTeamTheme", selectedTeam);
-});
-
-// Load saved theme on page load (optional)
-window.addEventListener("DOMContentLoaded", () => {
+// ===== Theme Switcher =====
+function applyTheme() {
     const savedTheme = localStorage.getItem("lebronTeamTheme") || "lakers";
     document.getElementById("team-select").value = savedTheme;
     document.body.classList.add(`${savedTheme}-theme`);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    applyTheme();
+
+    document.getElementById("team-select").addEventListener("change", function() {
+        document.body.classList.remove("lakers-theme", "cavaliers-theme", "heat-theme");
+        const selectedTeam = this.value;
+        document.body.classList.add(`${selectedTeam}-theme`);
+        localStorage.setItem("lebronTeamTheme", selectedTeam);
+    });
+
+    if (document.getElementById("generate-btn")) {
+        document.getElementById("generate-btn").addEventListener("click", generatePlan);
+    }
+
+    if (document.getElementById("todo-list")) {
+        loadTasks();
+        document.getElementById("add-task").addEventListener("click", addTask);
+    }
 });
