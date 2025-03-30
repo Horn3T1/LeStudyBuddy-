@@ -28,22 +28,21 @@
                 </select>
             </div>
             <button id="generate-btn">Generate Plan 🚀</button>
+
+            <section class="result-section" id="result" style="display: none;">
+                <h2>Your Study Plan</h2>
+                <div class="lebron-quote" id="quote"></div>
+                <div class="study-plan" id="plan"></div>
+                <div class="countdown" id="countdown"></div>
+                <div class="lebron-image" id="lebron-img"></div>
+            </section>
         </section>
 
-        <section class="result-section" id="result" style="display: none;">
-            <h2>Your Study Plan</h2>
-            <div class="lebron-quote" id="quote">
-                <!-- LeBron quote will appear here -->
-            </div>
-            <div class="study-plan" id="plan">
-                <!-- Study plan will appear here -->
-            </div>
-            <div class="countdown" id="countdown">
-                <!-- Days left will appear here -->
-            </div>
-            <div class="lebron-image" id="lebron-img">
-                <!-- LeBron image changes based on progress -->
-            </div>
+        <section class="todo-section">
+            <h2>📋 To-Do List 
+                <button id="edit-btn">✏️</button>
+            </h2>
+            <ul id="todo-list"></ul>
         </section>
     </div>
 
