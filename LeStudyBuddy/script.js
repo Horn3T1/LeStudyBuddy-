@@ -19,9 +19,9 @@ const lebronQuotes = {
 
 // LeBron images (you can replace with actual image URLs)
 const lebronImages = {
-    raw: "images/mediubron.jpg.webp",
-    medium: "images/rawbron.jpeg",
-    wellDone: "welldonebron.jpg"
+    raw: "images/rawbron.jpeg",
+    medium: "images/mediubron.jpg.webp",
+    wellDone: "images/welldonebron.jpg"
 };
 
 document.getElementById("generate-btn").addEventListener("click", generatePlan);
