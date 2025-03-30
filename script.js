@@ -75,10 +75,21 @@ function loadTasks() {
             loadTasks();
         });
         li.appendChild(checkbox);
-        li.appendChild(document.createTextNode(`${task.name} (Due: ${task.due})`));
+
+        const taskName = document.createElement("span");
+        taskName.textContent = task.name;
+        li.appendChild(taskName);
+
+        const dateSpan = document.createElement("span");
+        dateSpan.textContent = ` Due: ${task.due}`;
+        dateSpan.style.fontSize = "0.8rem"; // Smaller text
+        dateSpan.style.color = "#888";      // Optional: subtler color
+        li.appendChild(dateSpan);
+
         todoList.appendChild(li);
     });
 }
+
 
 function addTask() {
     const taskInput = document.getElementById("task-input");
